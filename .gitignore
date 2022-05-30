@@ -1,5 +1,14 @@
-#Ignore Debug/ folder
-Debug
+#Ignore build results
+[dD]ebug/
+[rR]elease/
+[dD]ebugPublic/
+[rR]eleases/
+x64/
+x86/
+bld/
+[bB]in/
+[oO]bj/
+[lL]og/
 
-#Ignore Release/ folder
-Release
+#Ignore .vs/ folder
+.vs/
