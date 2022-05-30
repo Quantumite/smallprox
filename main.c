@@ -48,18 +48,20 @@ typedef int BOOL;
 
 int main() {
 	//declaring/defining all local variables
-	int listen_sockfd, new_listen_sockfd, send_sockfd, err;
+	int err = 0, numbytes = 0;
 #ifdef _WIN32
+	SOCKET listen_sockfd, new_listen_sockfd, send_sockfd;
 	SOCKADDR_IN listen_address, dest_address;
 	WSADATA wsaData;
 #else //_WIN32
+	int listen_sockfd, new_listen_sockfd, send_sockfd;
 	struct sockaddr_in listen_address, dest_address;
 #endif //_WIN32
-	unsigned int sin_size = 0, recvPeekBuf = 0, recvPeekBufValue = 0, numbytes = 0;
+	unsigned int recvPeekBuf = 0, recvPeekBufValue = 0;
 	const char yes = 1;
 	struct in_addr listen_inaddr, send_inaddr;
 	BOOL bIsDoneRecv = FALSE, bIsDoneSend = FALSE, bServerConnectionClosed = FALSE, bClientConnectionClosed = FALSE;
-	size_t memorySize = 4096, totalNumBytes = 0;
+	size_t memorySize = 4096, totalNumBytes = 0, sin_size = 0;
 	
 	//Dynamic memory allocation
 	char* data = (char*)malloc(memorySize);

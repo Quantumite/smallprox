@@ -24,6 +24,7 @@
 
 - Compile-time Options
   - These values may be supplied at compile time to configure smallprox
+    - Otherwise edit the default values and recompile
   - `-D_DEBUG`
     - Turn on debugging messages
   - `-DSERVER_IP=127.0.0.1`
@@ -36,6 +37,15 @@
     - Set port that smallproxy send data to (dest)
 
 ## Examples
+- Examples for Windows are not shown, but can be given to Visual Studio in the Project Properties -> C/C++ -> Preprocesser Definitions -> Edit...
+- `gcc main.c -o smallprox_debug -D_DEBUG`
+  - Create a default smallprox with debugging messages enabled. Default values are 127.0.0.1:1234 -> 127.0.0.1:8080
+- `gcc main.c -o smallprox_debug -D_DEBUG -DSERVER_IP=192.168.1.100 -DSERVER_PORT=9090`
+  - Create a smallprox with debugging messages enabled. Proxy will go from 192.168.1.100:9090 -> 127.0.0.1:8080
+- `gcc main.c -o smallprox_release -DDEST_IP=172.17.32.1 -DDEST_PORT=3306`
+  - Create a smallprox with debugging messages disabled. Proxy will go from 127.0.0.1:1234 -> 172.17.32.1:3306
+- `gcc main.c -o smallprox_release -DSERVER_IP=192.168.1.100 -DSERVER_PORT=8081 -DDEST_IP=172.17.32.1 -DDEST_PORT=445`
+  - Create a smallprox with debugging messages disabled. Proxy will go from 192.168.1.100:8081 -> 172.17.32.1:445
 
 ## Additional Resources
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/html/#a-simple-stream-server)
