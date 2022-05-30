@@ -47,6 +47,22 @@
 - `gcc main.c -o smallprox_release -DSERVER_IP=192.168.1.100 -DSERVER_PORT=8081 -DDEST_IP=172.17.32.1 -DDEST_PORT=445`
   - Create a smallprox with debugging messages disabled. Proxy will go from 192.168.1.100:8081 -> 172.17.32.1:445
 
+## Current Compiled Sizes
+- Windows
+  - x86
+    - Debug: 45KB
+    - Release: 10KB
+  - x64
+    - Debug: 67KB
+    - Release: 12KB
+- Linux
+  - x86
+    - Debug: 16KB
+    - Release: 16KB
+  - x64
+    - Debug: 17KB
+    - Release: 17KB
+
 ## Additional Resources
 - [Beej's Guide to Network Programming](https://beej.us/guide/bgnet/html/#a-simple-stream-server)
 - [MSDN](https://docs.microsoft.com/en-us/)
