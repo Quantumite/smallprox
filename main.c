@@ -20,6 +20,9 @@
 #define INVALID_SOCKET (-1)
 #endif //_WIN32
 
+#define xstr(s) str(s)
+#define str(s) #s
+
 #ifndef SERVER_IP
 #define SERVER_IP ("127.0.0.1")
 #endif //SERVER_IP
@@ -68,8 +71,8 @@ int main() {
 		exit(1);
 	}
 
-	(void)inet_pton(AF_INET, SERVER_IP, &listen_inaddr);
-	(void)inet_pton(AF_INET, DEST_IP, &send_inaddr);
+	(void)inet_pton(AF_INET, xstr(SERVER_IP), &listen_inaddr);
+	(void)inet_pton(AF_INET, xstr(DEST_IP), &send_inaddr);
 
 	listen_address.sin_family = AF_INET;
 	listen_address.sin_addr = listen_inaddr;
