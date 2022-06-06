@@ -10,7 +10,7 @@
   - Using Visual Studio 2019 for Windows builds
 
 ## Video Link
-- [Link]()
+- [Link](https://youtu.be/saNDEkiyizA)
 
 ## Installation/Creation
 - Requires a build environment
